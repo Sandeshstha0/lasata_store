@@ -13,7 +13,7 @@ const NewsFeed = () => {
         image: "/news/frozenanditems.jpg",
         links:
           "https://sajilosnacks.kyte.site/en/c/frozen-items/1762771994100-PPnNR",
-        category: "Chips",
+        category: "Frozen items",
       },
       {
         id: 2,
@@ -28,11 +28,11 @@ const NewsFeed = () => {
     ],
     center: {
       id: 3,
-      title: "Beer Available now at SajiloSnacks",
-      excerpt: "Available Now on SajiloSnacks Order Now!!!",
-      image: "/news/drink.jpg",
+      title: "Latest News",
+      excerpt: "Get the latest news on SajiloSnacks Products.",
+      image: "/news/notice.jpg",
       links:
-          "https://sajilosnacks.kyte.site/en/p/gorkha-strong-can-beer/1761141611062-PPnNR",
+          "https://www.facebook.com/share/p/1BaF5iKSG1/",
       category: "Drinks",
       date: "2 hours ago",
     },
@@ -41,10 +41,10 @@ const NewsFeed = () => {
         id: 4,
         title: "SajiloSnacks",
         excerpt: "Recent updates .",
-        image: "/news/notice.jpg",
+        image: "/news/catalog.jpg",
          links:
-          "https://www.facebook.com/share/p/1BaF5iKSG1/",
-        category: "Updates",
+          "https://sajilosnacks.kyte.site/en",
+        category: "catalog",
       },
       {
         id: 5,
