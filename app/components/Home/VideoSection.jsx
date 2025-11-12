@@ -13,9 +13,9 @@ export default function VideoPlayer() {
   };
 
   return (
-    <div className="relative w-full h-full">
-      {/* Container with aspect ratio but responsive */}
-      <div className="relative w-full h-0 pb-[56.25%] sm:pb-[45%] md:pb-[40%] lg:pb-[35%] xl:pb-[30%] 2xl:pb-[25%]">
+    <div className="relative w-full h-full mt-2">
+      {/* Fixed height container - adjust these values as needed */}
+      <div className="relative w-full h-[200px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[500px] 2xl:h-[550px]">
         {/* Video that fills the container */}
         <video
           ref={videoRef}
