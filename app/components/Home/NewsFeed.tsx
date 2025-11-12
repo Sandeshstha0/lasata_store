@@ -48,9 +48,9 @@ const NewsFeed = () => {
       },
       {
         id: 5,
-        title: "SajiloSnacks",
-        excerpt: "Recent updates .",
-        image: "/news/date.jpg",
+        title: "Working at Lasata ",
+        excerpt: "Join our team and make a difference!",
+        image: "/1.jpg",
          links:
           "https://www.facebook.com/share/p/1BaF5iKSG1/",
         category: "Updates",
@@ -127,7 +127,7 @@ const NewsFeed = () => {
                     rel="noopener noreferrer"
                     className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
                   >
-                    Buy now
+                    Read
                   </a>
             </div>
           </div>
@@ -158,13 +158,58 @@ const NewsFeed = () => {
                     rel="noopener noreferrer"
                     className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
                   >
-                    Read
+                    View
                   </a>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Contact & Location Section */}
+<section className="my-12">
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center mb-8">Find Us</h2>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      {/* Google Maps */}
+      <div className="rounded-lg overflow-hidden shadow-lg">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d300.3165472172988!2d84.26535512564521!3d27.97476932536239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995a9688282bfb3%3A0x7a50fcd5253e556c!2sVision!5e1!3m2!1sen!2snp!4v1762940846650!5m2!1sen!2snp" 
+          width="100%" 
+          height="450" 
+          style={{border:0}} 
+          allowFullScreen 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Our Location"
+        ></iframe>
+      </div>
+
+      {/* Frozen Items Promotion */}
+      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+        <img 
+          src="/news/frozenanditems.jpg" 
+          alt="Frozen Items Available"
+          className="w-full h-48 object-cover"
+        />
+        <div className="p-6">
+          <span className="text-sm font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded">Frozen Items</span>
+          <h3 className="text-xl font-semibold mt-3 mb-3">Frozen Items Available</h3>
+          <p className="text-gray-600 mb-4">Available Now at SajiloSnacks. Order Now!!</p>
+          <a 
+            href="https://sajilosnacks.kyte.site/en/c/frozen-items/1762771994100-PPnNR"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded transition-colors"
+          >
+            Shop Frozen Items
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       </div>
     </section>
   );
