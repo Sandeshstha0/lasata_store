@@ -8,11 +8,11 @@ const NewsFeed = () => {
     left: [
       {
         id: 1,
-        title: "Current Naga Chilli",
+        title: "Frozen Items Available",
         excerpt: "Available Now at SajiloSnacks. Order Now!!",
-        image: "/news/chips.jpg",
+        image: "/news/frozenanditems.jpg",
         links:
-          "https://sajilosnacks.kyte.site/en/p/current-naga-chilli-8906088863501/1759212347486-PPnNR",
+          "https://sajilosnacks.kyte.site/en/c/frozen-items/1762771994100-PPnNR",
         category: "Chips",
       },
       {
@@ -62,7 +62,7 @@ const NewsFeed = () => {
     <section className="py-12 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-          Latest News
+          Know more
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
