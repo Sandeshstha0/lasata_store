@@ -15,7 +15,7 @@ export default function VideoPlayer() {
   return (
     <div className="relative w-full h-full mt-2">
       {/* Fixed height container - adjust these values as needed */}
-      <div className="relative w-full h-[200px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[500px] 2xl:h-[550px]">
+      <div className="relative w-full h-[200px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[500px] 2xl:h-[550px] blur sm rounded-lg overflow-hidden">
         {/* Video that fills the container */}
         <video
           ref={videoRef}
@@ -30,7 +30,12 @@ export default function VideoPlayer() {
           Your browser does not support the video tag.
         </video>
 
-        {/* Smart Responsive Button */}
+       
+
+        {/* Responsive Gradient */}
+        <div className="absolute bottom-0 left-0 w-full h-1/4 pointer-events-none bg-gradient-to-t from-black/30 via-black/10 to-transparent"></div>
+      </div>
+       {/* Smart Responsive Button */}
         <button
           onClick={toggleMute}
           className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8
@@ -41,10 +46,6 @@ export default function VideoPlayer() {
         >
           {isMuted ? "🔇" : "🔊"}
         </button>
-
-        {/* Responsive Gradient */}
-        <div className="absolute bottom-0 left-0 w-full h-1/4 pointer-events-none bg-gradient-to-t from-black/30 via-black/10 to-transparent"></div>
-      </div>
     </div>
   );
 }

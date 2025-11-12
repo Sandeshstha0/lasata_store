@@ -17,20 +17,20 @@ const NewsFeed = () => {
       },
       {
         id: 2,
-        title: "Store",
+        title: "Store ",
         excerpt:
           "Available Now on SajiloSnacks Order Now!!! Sajilosnacks.kyte.site",
-        image: "/news/colddrink.jpg",
+        image: "/news/location.png",
         links:
           "https://sajilosnacks.kyte.site/en/p/cocacola-2lts/1758540888104-PPnNR",
-        category: "Products",
+        category: "",
       },
     ],
     center: {
       id: 3,
       title: "Latest News",
       excerpt: "Get the latest news on SajiloSnacks Products.",
-      image: "/news/notice.jpg",
+      image: "/news/notice2.jpg",
       links:
           "https://www.facebook.com/share/p/1BaF5iKSG1/",
       category: "Updates",
@@ -53,7 +53,7 @@ const NewsFeed = () => {
         image: "/1.jpg",
          links:
           "https://www.facebook.com/share/p/1BaF5iKSG1/",
-        category: "Updates",
+        category: "",
       },
     ],
   };
@@ -76,7 +76,7 @@ const NewsFeed = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 "
                 />
                 <div className="p-4">
                   <span className="text-sm font-medium text-blue-600">

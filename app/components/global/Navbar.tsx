@@ -46,8 +46,9 @@ export default function Navbar() {
       label: "About Us", 
       icon: FiInfo,
       dropdown: [
+        { href: "/about/about", label: "About", icon: FiUsers },
         { href: "/about/nischal", label: "Nischal Shrestha", icon: FiAward },
-        { href: "/about/history", label: "Our History", icon: FiBriefcase },
+        { href: "/about/history", label: "History", icon: FiBriefcase },
       ]
     },
     { href: "/services", label: "Services", icon: FiSettings },
@@ -57,7 +58,7 @@ export default function Navbar() {
   return (
     <>
       {/* Fixed Navbar with reduced height */}
-      <nav className="fixed top-0 left-0 right-0 bg-[#38BDF8] text-white px-4 sm:px-6 py-3 flex justify-between items-center shadow-lg z-50">
+      <nav className="fixed top-0 left-0 right-0 bg-blue-800 text-white px-4 sm:px-6 py-3 flex justify-between items-center shadow-lg z-50">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <Image 
@@ -102,7 +103,7 @@ export default function Navbar() {
                             className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
                             onClick={() => setIsAboutDropdownOpen(false)}
                           >
-                            <DropdownIcon size={16} className="text-[#38BDF8]" />
+                            <DropdownIcon size={16} className="text-blue-900" />
                             {dropdownItem.label}
                           </a>
                         );
