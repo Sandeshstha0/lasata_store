@@ -46,8 +46,7 @@ export default function Navbar() {
       label: "About Us", 
       icon: FiInfo,
       dropdown: [
-        { href: "/about/team", label: "Our Team", icon: FiUsers },
-        { href: "/about/mission", label: "Our Mission", icon: FiAward },
+        { href: "/about/nischal", label: "Nischal Shrestha", icon: FiAward },
         { href: "/about/history", label: "Our History", icon: FiBriefcase },
       ]
     },

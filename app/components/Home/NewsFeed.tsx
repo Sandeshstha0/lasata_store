@@ -43,7 +43,7 @@ const NewsFeed = () => {
         excerpt: "Recent updates .",
         image: "/news/catalog.jpg",
          links:
-          "https://sajilosnacks.kyte.site/en",
+          "https://www.facebook.com/photo/?fbid=122131091192940573&set=pb.61578217207169.-2207520000",
         category: "catalog",
       },
       {
