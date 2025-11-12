@@ -11,7 +11,7 @@ export default function Home() {
     <Hero />
     <NewsFeed />
     <Products />
-    <h1>Welcome to Lasata Store</h1>
+    
    </div>
    </>
   );

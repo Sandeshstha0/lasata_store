@@ -4,7 +4,7 @@ import React from "react";
 export default function page() {
   return (
     <section className="my-12">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-2">
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
           {/* Name at Top */}
 
@@ -14,7 +14,7 @@ export default function page() {
           </div>
 
           {/* Content Area */}
-          <div className="p-8">
+          <div className="p-4">
             {/* Centered Profile Image */}
             <div className="flex justify-center mb-8">
               <img
