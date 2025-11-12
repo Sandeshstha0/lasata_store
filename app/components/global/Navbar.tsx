@@ -148,7 +148,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Sidebar */}
       <div 
-        className={`fixed top-0 right-0 h-full w-64 bg-[#38BDF8] text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 h-full w-64 bg-blue-900 text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
