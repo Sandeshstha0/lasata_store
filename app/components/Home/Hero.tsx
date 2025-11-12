@@ -10,7 +10,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm"
         style={{
-          backgroundImage: `url('https://media.istockphoto.com/id/1328853722/photo/over-the-shoulder-view-of-young-asian-woman-doing-home-delivery-grocery-shopping-online-with.jpg?s=1024x1024&w=is&k=20&c=aXLmUtt_6Z7_7uyYGvJCpzPjAGXvrYr9O-kMjK8SOrg=')`,
+          backgroundImage: `url('/news/broucher.jpg')`,
         }}
       />
 
