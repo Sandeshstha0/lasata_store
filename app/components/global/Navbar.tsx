@@ -15,6 +15,8 @@ import {
   FiAward,
   FiBriefcase
 } from "react-icons/fi";
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
+import { GrGallery } from "react-icons/gr";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,8 +53,9 @@ export default function Navbar() {
         { href: "/about/history", label: "History", icon: FiBriefcase },
       ]
     },
-    { href: "/services", label: "Services", icon: FiSettings },
-    { href: "/contact", label: "Contact", icon: FiMail },
+    { href: "/services", label: "NewsAndUpdates", icon: MdOutlineTipsAndUpdates },
+    { href: "/gallery", label: "Gallery", icon: GrGallery },
+     { href: "/contact", label: "Contact", icon: FiMail },
   ];
 
   return (

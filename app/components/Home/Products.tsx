@@ -22,20 +22,26 @@ export default function Products() {
     <section className="my-12">
       <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-24">
         {/* Left Section - Logo & Sub-brand */}
-        <div className="flex flex-col items-center text-center flex-shrink-0 w-full lg:w-auto lg:items-start lg:text-left">
+        <div className="flex flex-col items-center text-center w-full">
           <img
             src="/news/logo.png"
             alt="Logo"
-            className="h-[6.2em] w-auto drop-shadow-2xl brightness-100 contrast-110 mx-auto lg:mx-0"
+            className="h-[6.2em] w-auto drop-shadow-2xl brightness-100 contrast-110"
           />
-
           <p className="text-blue-900 font-bold text-4xl mt-2 leading-tight">
             SUB-BRAND
           </p>
-
           <p className="text-blue-900 font-semibold text-xl mt-1">
             Sajilo Snacks
           </p>
+          <div className="w-full max-w-2xl mt-4">
+            <p className="text-blue-900 font-semibold text-xl text-justify leading-relaxed">
+              Sajilo Snacks is an online-exclusive sub-brand of Lasata, created
+              to make snacking and Grocery Shopping easier, quicker, and more
+              enjoyable for everyone. With just a few clicks, customers can
+              order their favorite right from home — no waiting, no hassle.
+            </p>
+          </div>
         </div>
 
         {/* Right Section - Products Grid */}

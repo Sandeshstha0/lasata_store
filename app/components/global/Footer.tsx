@@ -8,12 +8,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">Our Business Family</h3>
+            <h3 className="text-2xl font-bold mb-4">Lasata</h3>
             <p className="text-gray-300 mb-4 text-justify">
-              We are a family of dedicated businesses committed to bringing
-              quality products and services to our community. Through our
-              various brands and ventures, we strive to empower local
-              entrepreneurs and create meaningful impact in the market.
+              Lasata Department Store, established on 2025 AD (Nepal Sambat
+              1146). A modern retail hub offering quality products and friendly
+              service. Dedicated to making shopping simple and affordable,
+              Lasata provides everyday essentials under one roof — proudly
+              serving as “Your Local Shopping Destination.”
             </p>
             <div className="flex space-x-4">
               <a
@@ -143,7 +144,6 @@ export default function Footer() {
                 </svg>
                 sajilosnacks@gmail.com, lasatadepartmentstore@gmail.com
               </li>
-             
             </ul>
           </div>
         </div>
@@ -279,8 +279,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Our Business Family. All rights
-            reserved.
+            © {new Date().getFullYear()} Latasa. All rights reserved.
           </div>
           <div className="flex space-x-6 text-sm text-gray-400">
             <a href="#" className="hover:text-white transition-colors">

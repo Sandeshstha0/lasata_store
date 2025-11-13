@@ -50,7 +50,7 @@ const NewsFeed = () => {
         id: 5,
         title: "Working at Lasata ",
         excerpt: "Join our team and make a difference!",
-        image: "/1.jpg",
+        image: "/bannerlasata.jpg",
          links:
           "https://www.facebook.com/share/p/1BaF5iKSG1/",
         category: "",

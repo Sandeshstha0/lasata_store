@@ -4,22 +4,20 @@ import React from "react";
 export default function page() {
   return (
     <section className="my-12">
-      
       <div className="container mx-auto ">
         <div className="max-w-auto mx-auto shadow-lg overflow-hidden">
           {/* Name at Top */}
           <div className="flex justify-center mb-4">
-              <img
-                src="/3.jpg"
-                alt="John Doe"
-                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl h-auto object-cover  "
-              />
-            </div>
+            <img
+              src="/3.jpg"
+              alt="John Doe"
+              className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl h-auto object-cover  "
+            />
+          </div>
 
           {/* Content Area */}
           <div className="p-8">
             {/* Centered Profile Image */}
-            
 
             <div className="  px-8 text-left border-b-2 border-gray-400 bg-gray-50 mb-6">
               <h3 className="text-5xl text-blue-800 font-bold">
@@ -31,14 +29,17 @@ export default function page() {
             {/* Description */}
             <div className="text-justify">
               <div className="prose max-w-none mx-auto">
-                <p className="text-gray-700 text-lg leading-relaxed">
+                <p className="text-2xl text-blue-800  font-semibold mt-4 ">
+                  Tired of the retail runaround?
+                </p>
+                <p className="text-gray-700 text-lg leading-relaxed mt-4">
                   A young entrepreneur passionate about bringing modern retail
                   experiences to local communities across Nepal. Born in Vyas
                   Municipality, Tanahun District. Business has always been a
                   part of Shrestha’s roots. His father started a small grocery
-                  business even before Shrestha’s was born — a humble store
-                  built on trust, honesty, and a deep sense of service to the
-                  community. As Shrestha’s grew up, he watched his father’s
+                  business even before Shrestha was born — a humble store built
+                  on trust, honesty, and a deep sense of service to the
+                  community. As Shrestha grew up, he watched his father’s
                   dedication, hard work, and unwavering commitment to his
                   customers, which left a lasting impression on him. Inspired by
                   his father’s values, Shrestha’s decided to carry forward the
@@ -48,14 +49,18 @@ export default function page() {
                   Through Lasata, Shrestha’s continues to blend traditional
                   values with a customer-focused, forward-thinking approach,
                   keeping the family’s spirit of service alive for a new
-                  generation. Successfully completed 10+2 in Computer
-                  Engineering with an A grade, and currently pursuing Bachelor’s
-                  degree in a related field. Shrestha’s technical background
-                  inspires to integrate modern technology and digital systems
-                  into business operations, creating a smarter and more
+                  generation. Meet Shrestha, the visionary founder who is
+                  integrating technology and time-tested business values to
+                  revolutionize the market., Successfully completed 10+2 in
+                  Computer Engineering with an A grade, and currently pursuing
+                  Bachelor’s degree in a related field. Shrestha’s technical
+                  background inspires to integrate modern technology and digital
+                  systems into business operations, creating a smarter and more
                   efficient shopping experience.
                 </p>
-                <p className="text-2xl text-blue-800  font-semibold mt-12 ">VISION</p>
+                <p className="text-2xl text-blue-800  font-semibold mt-12 ">
+                  VISION
+                </p>
                 <p className="text-gray-700  text-lg leading-relaxed mt-4">
                   To serve every corner of Nepal by providing easy access to
                   quality products at fair prices — building trust and
@@ -80,7 +85,8 @@ export default function page() {
                 <p className="text-gray-700 text-lg leading-relaxed mt-4">
                   “Dream big, stay consistent — success follows those who serve
                   with heart.”
-                  <p className="text-gray-700 text-lg leading-relaxed mt-4"></p>
+                </p>
+                <p className="text-gray-700 text-lg leading-relaxed mt-4">
                   My father started the dream with hard work and honesty — I’m
                   carrying it forward with heart and innovation. Lasata is more
                   than a store; it’s a family story, a legacy of love, and a
