@@ -1,19 +1,17 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import { 
-  FiHome, 
-  FiInfo, 
-  FiSettings, 
-  FiMail, 
-  FiMenu, 
+import {
+  FiHome,
+  FiInfo,
+  FiMail,
+  FiMenu,
   FiX,
   FiChevronDown,
   FiUsers,
   FiAward,
-  FiBriefcase
+  FiBriefcase,
 } from "react-icons/fi";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
 import { GrGallery } from "react-icons/gr";
@@ -30,7 +28,10 @@ export default function Navbar() {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsAboutDropdownOpen(false);
       }
     };
@@ -43,19 +44,23 @@ export default function Navbar() {
 
   const navItems = [
     { href: "/", label: "Home", icon: FiHome },
-    { 
-      href: "#", 
-      label: "About Us", 
+    {
+      href: "#",
+      label: "About Us",
       icon: FiInfo,
       dropdown: [
         { href: "/about/about", label: "About", icon: FiUsers },
         { href: "/about/nischal", label: "Nischal Shrestha", icon: FiAward },
         { href: "/about/history", label: "History", icon: FiBriefcase },
-      ]
+      ],
     },
-    { href: "/services", label: "News And Updates", icon: MdOutlineTipsAndUpdates },
+    {
+      href: "/services",
+      label: "News And Updates",
+      icon: MdOutlineTipsAndUpdates,
+    },
     { href: "/gallery", label: "Gallery", icon: GrGallery },
-     { href: "/contact", label: "Contact", icon: FiMail },
+    { href: "/contact", label: "Contact", icon: FiMail },
   ];
 
   return (
@@ -64,10 +69,10 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 bg-blue-800 text-white px-4 sm:px-6 py-3 flex justify-between items-center shadow-lg z-50">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <Image 
-            src="/1.jpg" 
-            alt="Lasata logo" 
-            width={32} 
+          <Image
+            src="/1.jpg"
+            alt="Lasata logo"
+            width={32}
             height={32}
             className="rounded-full"
           />
@@ -78,7 +83,7 @@ export default function Navbar() {
         <ul className="hidden md:flex items-center gap-4">
           {navItems.map((item) => {
             const Icon = item.icon;
-            
+
             if (item.dropdown) {
               return (
                 <li key={item.label} className="relative" ref={dropdownRef}>
@@ -88,12 +93,14 @@ export default function Navbar() {
                   >
                     <Icon size={16} />
                     {item.label}
-                    <FiChevronDown 
-                      size={16} 
-                      className={`transition-transform duration-200 ${isAboutDropdownOpen ? 'rotate-180' : ''}`} 
+                    <FiChevronDown
+                      size={16}
+                      className={`transition-transform duration-200 ${
+                        isAboutDropdownOpen ? "rotate-180" : ""
+                      }`}
                     />
                   </button>
-                  
+
                   {/* Dropdown Menu */}
                   {isAboutDropdownOpen && (
                     <div className="absolute top-full left-0 mt-1 w-48 bg-white text-gray-800 rounded-lg shadow-xl py-2 z-50">
@@ -119,8 +126,8 @@ export default function Navbar() {
 
             return (
               <li key={item.href}>
-                <a 
-                  href={item.href} 
+                <a
+                  href={item.href}
                   className="hover:text-gray-200 transition-colors duration-200 flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-[#0EA5E9]"
                 >
                   <Icon size={16} />
@@ -132,7 +139,7 @@ export default function Navbar() {
         </ul>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden p-1 rounded-lg hover:bg-[#0EA5E9] transition-colors duration-200"
           onClick={toggleMenu}
           aria-label="Toggle menu"
@@ -142,25 +149,25 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div 
+      <div
         className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 md:hidden ${
-          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={toggleMenu}
       />
 
       {/* Mobile Menu Sidebar */}
-      <div 
+      <div
         className={`fixed top-0 right-0 h-full w-64 bg-blue-900 text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="p-4 border-b border-[#0EA5E9]">
           <div className="flex items-center gap-2">
-            <Image 
-              src="/1.jpg" 
-              alt="Lasata logo" 
-              width={32} 
+            <Image
+              src="/1.jpg"
+              alt="Lasata logo"
+              width={32}
               height={32}
               className="rounded-full"
             />
@@ -171,7 +178,7 @@ export default function Navbar() {
         <ul className="p-3 space-y-2">
           {navItems.map((item) => {
             const Icon = item.icon;
-            
+
             if (item.dropdown) {
               return (
                 <li key={item.label} className="border-b border-[#0EA5E9] pb-2">
@@ -184,8 +191,8 @@ export default function Navbar() {
                       const DropdownIcon = dropdownItem.icon;
                       return (
                         <li key={dropdownItem.href}>
-                          <a 
-                            href={dropdownItem.href} 
+                          <a
+                            href={dropdownItem.href}
                             className="flex items-center gap-3 p-2 rounded-lg hover:bg-[#0EA5E9] transition-colors duration-200 text-sm"
                             onClick={toggleMenu}
                           >
@@ -202,8 +209,8 @@ export default function Navbar() {
 
             return (
               <li key={item.href}>
-                <a 
-                  href={item.href} 
+                <a
+                  href={item.href}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#0EA5E9] transition-colors duration-200 text-base"
                   onClick={toggleMenu}
                 >
