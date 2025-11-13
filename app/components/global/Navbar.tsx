@@ -72,7 +72,7 @@ export default function Navbar() {
           <Image
             src="/1.1.jpg"
             alt="Lasata logo"
-            width={100}
+            width={80}
             height={32}
             className=""
           />
