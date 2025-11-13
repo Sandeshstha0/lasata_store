@@ -14,16 +14,18 @@ const NewsFeed = () => {
         links:
           "https://sajilosnacks.kyte.site/en/c/frozen-items/1762771994100-PPnNR",
         category: "Frozen items",
+        button: "Buy Now",
       },
       {
         id: 2,
         title: "Store ",
         excerpt:
-          "Available Now on SajiloSnacks Order Now!!! Sajilosnacks.kyte.site",
+          "Vyas Municipality, Tanahun, Nepal",
         image: "/news/location.jpg",
         links:
           "https://sajilosnacks.kyte.site/en/p/cocacola-2lts/1758540888104-PPnNR",
         category: "",
+        button: "Visit Us",
       },
     ],
     center: {
@@ -49,7 +51,7 @@ const NewsFeed = () => {
       {
         id: 5,
         title: "Working at Lasata ",
-        excerpt: "Join our team and make a difference!",
+        excerpt: "Working at Lasata means being part of a growing, customer-focused team that values innovation, integrity, and teamwork.",
         image: "/bannerlasata.jpg",
          links:
           "https://www.facebook.com/share/p/1BaF5iKSG1/",
@@ -92,7 +94,7 @@ const NewsFeed = () => {
                     rel="noopener noreferrer"
                     className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
                   >
-                    Buy Now
+                    {item.button}
                   </a>
                 </div>
               </div>

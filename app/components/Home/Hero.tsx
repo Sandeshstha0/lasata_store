@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 
 export default function Hero() {
   return (
-    <div className="relative h-[70vh] md:h-[90vh] w-full overflow-hidden">
+    <div className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center "
