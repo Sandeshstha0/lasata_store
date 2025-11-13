@@ -260,7 +260,7 @@ export default function Footer() {
             <div className="mb-4 md:mb-0">
               <h4 className="text-lg font-semibold mb-2">Stay Updated</h4>
               <p className="text-gray-300">
-                Get news about our latest brands and products
+                Get news about our latest update on Lasata.
               </p>
             </div>
             <div className="flex w-full md:w-auto">
@@ -270,7 +270,7 @@ export default function Footer() {
                 className="px-4 py-3 bg-gray-800 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-64 placeholder-gray-400"
               />
               <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-r-lg transition-colors font-medium">
-                Subscribe
+                Jwojwolopa
               </button>
             </div>
           </div>
