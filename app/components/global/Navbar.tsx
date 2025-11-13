@@ -53,7 +53,7 @@ export default function Navbar() {
         { href: "/about/history", label: "History", icon: FiBriefcase },
       ]
     },
-    { href: "/services", label: "NewsAndUpdates", icon: MdOutlineTipsAndUpdates },
+    { href: "/services", label: "News And Updates", icon: MdOutlineTipsAndUpdates },
     { href: "/gallery", label: "Gallery", icon: GrGallery },
      { href: "/contact", label: "Contact", icon: FiMail },
   ];

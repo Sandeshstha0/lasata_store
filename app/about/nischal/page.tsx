@@ -29,27 +29,24 @@ export default function page() {
             {/* Description */}
             <div className="text-justify">
               <div className="prose max-w-none mx-auto">
-                <p className="text-2xl text-blue-800  font-semibold mt-4 ">
-                  Tired of the retail runaround?
-                </p>
-                <p className="text-gray-700 text-lg leading-relaxed mt-4">
-                  A young entrepreneur passionate about bringing modern retail
-                  experiences to local communities across Nepal. Born in Vyas
-                  Municipality, Tanahun District. Business has always been a
-                  part of Shrestha’s roots. His father started a small grocery
-                  business even before Shrestha was born — a humble store built
-                  on trust, honesty, and a deep sense of service to the
-                  community. As Shrestha grew up, he watched his father’s
-                  dedication, hard work, and unwavering commitment to his
-                  customers, which left a lasting impression on him. Inspired by
-                  his father’s values, Shrestha’s decided to carry forward the
-                  family dream — but in a new and modern way. This vision gave
-                  birth to Lasata, a fresh and innovative brand that honors his
-                  father’s legacy while embracing modern retail concepts.
-                  Through Lasata, Shrestha’s continues to blend traditional
-                  values with a customer-focused, forward-thinking approach,
-                  keeping the family’s spirit of service alive for a new
-                  generation. Meet Shrestha, the visionary founder who is
+                <p className="text-gray-700 text-lg leading-relaxed mt-4 indent-24">
+                  Tired of the retail runaround? A young entrepreneur passionate
+                  about bringing modern retail experiences to local communities
+                  across Nepal. Born in Vyas Municipality, Tanahun District.
+                  Business has always been a part of Shrestha’s roots. His
+                  father started a small grocery business even before Shrestha
+                  was born — a humble store built on trust, honesty, and a deep
+                  sense of service to the community. As Shrestha grew up, he
+                  watched his father’s dedication, hard work, and unwavering
+                  commitment to his customers, which left a lasting impression
+                  on him. Inspired by his father’s values, Shrestha’s decided to
+                  carry forward the family dream — but in a new and modern way.
+                  This vision gave birth to Lasata, a fresh and innovative brand
+                  that honors his father’s legacy while embracing modern retail
+                  concepts. Through Lasata, Shrestha’s continues to blend
+                  traditional values with a customer-focused, forward-thinking
+                  approach, keeping the family’s spirit of service alive for a
+                  new generation. Meet Shrestha, the visionary founder who is
                   integrating technology and time-tested business values to
                   revolutionize the market., Successfully completed 10+2 in
                   Computer Engineering with an A grade, and currently pursuing
@@ -61,7 +58,7 @@ export default function page() {
                 <p className="text-2xl text-blue-800  font-semibold mt-12 ">
                   VISION
                 </p>
-                <p className="text-gray-700  text-lg leading-relaxed mt-4">
+                <p className="text-gray-700  text-lg leading-relaxed mt-4 indent-18">
                   To serve every corner of Nepal by providing easy access to
                   quality products at fair prices — building trust and
                   connection with customers across the nation. Lasata aims to
@@ -71,7 +68,7 @@ export default function page() {
                 <p className="text-2xl text-blue-800  font-semibold mt-12 ">
                   Mr. Nischal Shrestha&#39;s Legacy{" "}
                 </p>
-                <p className="text-gray-700 text-lg leading-relaxed mt-4">
+                <p className="text-gray-700 text-lg leading-relaxed mt-4 indent-18">
                   Lasata is more than just a growing brand — it’s a family story
                   continued with pride. What started as a small grocery shop by
                   his father has now become a modern marketplace under Nischal’s
@@ -86,7 +83,7 @@ export default function page() {
                   “Dream big, stay consistent — success follows those who serve
                   with heart.”
                 </p>
-                <p className="text-gray-700 text-lg leading-relaxed mt-4">
+                <p className="text-gray-700 text-lg leading-relaxed mt-4 indent-24">
                   My father started the dream with hard work and honesty — I’m
                   carrying it forward with heart and innovation. Lasata is more
                   than a store; it’s a family story, a legacy of love, and a

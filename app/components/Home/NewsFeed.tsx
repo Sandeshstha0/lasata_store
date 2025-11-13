@@ -20,7 +20,7 @@ const NewsFeed = () => {
         title: "Store ",
         excerpt:
           "Available Now on SajiloSnacks Order Now!!! Sajilosnacks.kyte.site",
-        image: "/news/location.png",
+        image: "/news/location.jpg",
         links:
           "https://sajilosnacks.kyte.site/en/p/cocacola-2lts/1758540888104-PPnNR",
         category: "",
@@ -76,7 +76,7 @@ const NewsFeed = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-48 "
+                  className="w-full h-48 object-cover"
                 />
                 <div className="p-4">
                   <span className="text-sm font-medium text-blue-600">
