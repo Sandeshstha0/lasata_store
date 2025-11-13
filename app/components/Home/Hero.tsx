@@ -5,19 +5,19 @@ import "swiper/css/pagination";
 
 export default function Hero() {
   return (
-    <div className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
+    <div className="relative h-[70vh] md:h-[90vh] w-full overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm"
+        className="absolute inset-0 bg-cover bg-center "
         style={{
           backgroundImage: `url('/news/broucher.jpg')`,
         }}
       />
 
-       <div className="absolute inset-0 bg-black/30" />
+       {/* <div className="absolute inset-0 bg-black/30" /> */}
 
       {/* Centered Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
+      {/* <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
           Welcome to{" "}
           <img
@@ -39,7 +39,7 @@ export default function Hero() {
             Learn More
           </button>
         </div>
-      </div>
+      </div> */}
 
       
     </div>
