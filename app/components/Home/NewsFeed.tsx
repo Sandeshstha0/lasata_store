@@ -33,8 +33,7 @@ const NewsFeed = () => {
       title: "Latest News",
       excerpt: "Latest News — Stay Updated with Lasata",
       image: "/news/notice2.jpg",
-      links:
-          "https://www.facebook.com/share/p/1BaF5iKSG1/",
+      links: "https://www.facebook.com/share/p/1BaF5iKSG1/",
       category: "Updates",
       date: "2 hours ago",
     },
@@ -44,18 +43,20 @@ const NewsFeed = () => {
         title: "SajiloSnacks",
         excerpt: "See Our Catalog and Find Your Favorites!",
         image: "/news/catalog.jpg",
-         links:
+        links:
           "https://www.facebook.com/photo/?fbid=122131091192940573&set=pb.61578217207169.-2207520000",
         category: "catalog",
+        button: "View Catalog",
       },
       {
         id: 5,
         title: "Working at Lasata ",
-        excerpt: "Working at Lasata means being part of a growing, customer-focused team that values innovation, integrity, and teamwork.",
+        excerpt:
+          "Working at Lasata means being part of a growing, customer-focused team that values innovation, integrity, and teamwork.",
         image: "/bannerlasata.jpg",
-         links:
-          "https://www.facebook.com/share/p/1BaF5iKSG1/",
+        links: "https://www.facebook.com/share/p/1BaF5iKSG1/",
         category: "",
+        button: "",
       },
     ],
   };
@@ -123,19 +124,19 @@ const NewsFeed = () => {
               <p className="text-gray-700 text-lg leading-relaxed">
                 {newsItems.center.excerpt}
               </p>
-             <a
-                    href={newsItems.center.links}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
-                  >
-                    Read
-                  </a>
+              <a
+                href={newsItems.center.links}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
+              >
+                Read
+              </a>
             </div>
           </div>
 
           {/* Right Column - 2 rows */}
-           <div className="space-y-6">
+          <div className="space-y-6">
             {newsItems.right.map((item) => (
               <div
                 key={item.id}
@@ -154,21 +155,21 @@ const NewsFeed = () => {
                     {item.title}
                   </h3>
                   <p className="text-gray-600">{item.excerpt}</p>
-                  <a
-                    href={item.links}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
-                  >
-                    View
-                  </a>
+                  {item?.button && (
+                    <a
+                      href={item.links}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
+                    >
+                      {item.button}
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
           </div>
         </div>
-
-        
       </div>
     </section>
   );
