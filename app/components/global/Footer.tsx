@@ -149,7 +149,7 @@ export default function Footer() {
         </div>
 
         {/* Quick Links */}
-        <div className="border-t border-gray-700 mt-8 pt-8">
+        {/* <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div>
               <h5 className="font-semibold mb-3">Company</h5>
@@ -252,7 +252,7 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Newsletter Subscription */}
         <div className="border-t border-gray-700 mt-8 pt-8">
