@@ -270,7 +270,7 @@ export default function Footer() {
                 className="px-4 py-3 bg-gray-800 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-64 placeholder-gray-400"
               />
               <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-r-lg transition-colors font-medium">
-                Jwoajalopa
+                Jwajalopa
               </button>
             </div>
           </div>
