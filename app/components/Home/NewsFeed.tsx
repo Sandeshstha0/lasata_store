@@ -20,7 +20,7 @@ const NewsFeed = () => {
         id: 2,
         title: "Store ",
         excerpt:
-          "Vyas Municipality, Tanahun, Nepal",
+          " Step In, Shop Easy-Lasata Department Store.(Vyas Municipality, Tanahun, Nepal) ",
         image: "/news/location.jpg",
         links:
           "https://sajilosnacks.kyte.site/en/p/cocacola-2lts/1758540888104-PPnNR",
@@ -31,7 +31,7 @@ const NewsFeed = () => {
     center: {
       id: 3,
       title: "Latest News",
-      excerpt: "Get the latest news on SajiloSnacks Products.",
+      excerpt: "Latest News — Stay Updated with Lasata",
       image: "/news/notice2.jpg",
       links:
           "https://www.facebook.com/share/p/1BaF5iKSG1/",
@@ -42,7 +42,7 @@ const NewsFeed = () => {
       {
         id: 4,
         title: "SajiloSnacks",
-        excerpt: "Recent updates .",
+        excerpt: "See Our Catalog and Find Your Favorites!",
         image: "/news/catalog.jpg",
          links:
           "https://www.facebook.com/photo/?fbid=122131091192940573&set=pb.61578217207169.-2207520000",
