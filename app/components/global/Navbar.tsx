@@ -70,13 +70,13 @@ export default function Navbar() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <Image
-            src="/1.jpg"
+            src="/1.1.jpg"
             alt="Lasata logo"
-            width={32}
+            width={100}
             height={32}
-            className="rounded-full"
+            className=""
           />
-          <span className="font-bold text-base hidden sm:block">Lasata</span>
+          
         </div>
 
         {/* Desktop Menu */}

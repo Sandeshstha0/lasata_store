@@ -32,12 +32,12 @@ export default function Products() {
             <p className="text-blue-900 font-bold text-4xl mt-2 leading-tight">
               SUB-BRAND
             </p>
-            <p className="text-blue-900 font-semibold text-xl mt-1">
+            <p className=" font-semibold text-xl mt-1">
               Sajilo Snacks
             </p>
           </div>
           <div className="w-full max-w-4xl mt-4">
-            <p className="text-blue-900 font-semibold text-lg text-justify lg:text-left leading-relaxed">
+            <p className=" font-semibold text-lg text-justify lg:text-left leading-relaxed">
               Sajilo Snacks is an online-exclusive sub-brand of Lasata, created
               to make snacking and Grocery Shopping easier, quicker, and more
               enjoyable for everyone. With just a few clicks, customers can
