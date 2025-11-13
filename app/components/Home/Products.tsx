@@ -20,9 +20,9 @@ export default function Products() {
 
   return (
     <section className="my-12">
-      <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-24">
+      <div className="container bg-gray-100 mx-auto p-6 sm:px-8 md:px-16 lg:px-24 flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-24">
         {/* Left Section - Logo & Sub-brand */}
-        <div className="flex flex-col items-center lg:items-left text-center lg:text-left w-full">
+        <div className="flex flex-col  items-center lg:items-left text-center lg:text-left w-full">
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full">
             <img
               src="/news/logo.png"
@@ -37,7 +37,7 @@ export default function Products() {
             </p>
           </div>
           <div className="w-full max-w-4xl mt-4">
-            <p className=" font-semibold text-lg text-justify lg:text-left leading-relaxed">
+            <p className="  text-lg text-justify lg:text-left leading-relaxed">
               Sajilo Snacks is an online-exclusive sub-brand of Lasata, created
               to make snacking and Grocery Shopping easier, quicker, and more
               enjoyable for everyone. With just a few clicks, customers can

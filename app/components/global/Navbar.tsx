@@ -15,6 +15,7 @@ import {
 } from "react-icons/fi";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
 import { GrGallery } from "react-icons/gr";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -68,16 +69,17 @@ export default function Navbar() {
       {/* Fixed Navbar with reduced height */}
       <nav className="fixed top-0 left-0 right-0 bg-blue-800 text-white px-4 sm:px-6 py-3 flex justify-between items-center shadow-lg z-50">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <Image
-            src="/1.1.jpg"
-            alt="Lasata logo"
-            width={80}
-            height={32}
-            className=""
-          />
-          
-        </div>
+        <Link href="/">
+          <div className="flex items-center gap-2 cursor-pointer">
+            <Image
+              src="/1.1.jpg"
+              alt="Lasata logo"
+              width={80}
+              height={32}
+              className=""
+            />
+          </div>
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-4">
