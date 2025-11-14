@@ -56,7 +56,7 @@ export default function Navbar() {
       ],
     },
     {
-      href: "/services",
+      href: "/newsandupdate",
       label: "News And Updates",
       icon: MdOutlineTipsAndUpdates,
     },
