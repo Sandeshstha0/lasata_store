@@ -250,7 +250,7 @@ export default function NewsUpdatesPage() {
               News & Updates
             </h1>
             <p className="text-xl lg:text-2xl opacity-90 mb-8">
-              Stay informed about the latest from Lasata Department Store
+              Stay informed about the latest from Lasata (LDS)
             </p>
             <p className="text-lg opacity-80 max-w-2xl mx-auto">
               Discover new products, special offers, community events, and everything happening at your favorite local store
