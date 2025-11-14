@@ -8,8 +8,8 @@ export default function AboutPage() {
   const stats = [
     { number: "2025", label: "Founded" },
     { number: "1146", label: "Nepal Sambat" },
-    { number: "100+", label: "Products" },
-    { number: "24/7", label: "Online Service" },
+    { number: "1000+", label: "Products" },
+    { number: "24/7", label: "Service" },
   ];
 
   const values = [
@@ -28,11 +28,7 @@ export default function AboutPage() {
       title: "Wide Selection",
       description: "Everything you need in one convenient place"
     },
-    {
-      icon: FiTruck,
-      title: "Fast Delivery",
-      description: "Quick and reliable delivery to your doorstep"
-    }
+   
   ];
 
   const storeInfo = [
@@ -100,7 +96,7 @@ export default function AboutPage() {
             {/* Content Section */}
             <div className="lg:w-1/2">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                About Lasata 
+                About Lasata (LDS)
               </h2>
               
               <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
@@ -156,7 +152,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
