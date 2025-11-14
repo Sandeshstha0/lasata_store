@@ -1,348 +1,365 @@
-/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import React, { useState, useRef } from "react";
-import { FiPlay, FiPause, FiVolume2, FiVolumeX, FiShoppingBag, FiTruck, FiStar, FiUsers, FiClock, FiMapPin, FiPhone, FiArrowRight } from "react-icons/fi";
+import React, { useState } from "react";
+import { FiCalendar, FiClock, FiMapPin, FiTag, FiArrowRight, FiSearch } from "react-icons/fi";
 
-export default function LandingPage() {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
+// Type definitions
+interface NewsUpdate {
+  id: number;
+  title: string;
+  excerpt: string;
+  content: string;
+  image: string;
+  date: string;
+  category: string;
+  tags: string[];
+  author: string;
+  featured: boolean;
+  location?: string;
+  time?: string;
+}
 
-  const toggleVideoPlayback = () => {
-    if (videoRef.current) {
-      if (isVideoPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsVideoPlaying(!isVideoPlaying);
+interface Category {
+  id: string;
+  name: string;
+}
+
+interface NewsCardProps {
+  update: NewsUpdate;
+  featured?: boolean;
+}
+
+export default function NewsUpdatesPage() {
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  const categories: Category[] = [
+    { id: "all", name: "All Updates" },
+    { id: "announcements", name: "Announcements" },
+    { id: "events", name: "Events" },
+    { id: "products", name: "New Products" },
+    { id: "offers", name: "Special Offers" },
+    { id: "community", name: "Community" }
+  ];
+
+  const newsUpdates: NewsUpdate[] = [
+    {
+      id: 1,
+      title: "Grand Opening Celebration - Lasata Department Store",
+      excerpt: "Join us for the grand opening of Lasata Department Store with special discounts, cultural programs, and free gifts for first 100 customers!",
+      content: "We're thrilled to announce the grand opening of Lasata Department Store on March 15, 2025. Come celebrate with us and enjoy amazing opening offers, traditional cultural performances, and special gifts for our valued customers.",
+      image: "/news/grand-opening.jpg",
+      date: "2025-03-10",
+      category: "events",
+      tags: ["grand-opening", "celebration", "discounts"],
+      author: "Lasata Team",
+      featured: true,
+      location: "Vyas Municipality, Tanahun",
+      time: "9:00 AM - 8:00 PM"
+    },
+    {
+      id: 2,
+      title: "Sajilo Snacks - Online Store Now Live!",
+      excerpt: "Our digital platform Sajilo Snacks is now officially launched. Order your favorite snacks and groceries online with fast delivery.",
+      content: "We're excited to launch Sajilo Snacks, our online shopping platform. Now you can order all your favorite products from Lasata Department Store through our website with easy payment options and fast delivery service.",
+      image: "/news/sajilo-launch.jpg",
+      date: "2025-03-01",
+      category: "announcements",
+      tags: ["online-store", "sajilo-snacks", "delivery"],
+      author: "Digital Team",
+      featured: true
+    },
+    {
+      id: 3,
+      title: "New Product Line: Local Organic Vegetables",
+      excerpt: "Introducing fresh, locally sourced organic vegetables from farmers in Tanahun region. Support local agriculture!",
+      content: "We've partnered with local farmers to bring you the freshest organic vegetables. Our new product line features seasonal produce grown sustainably in the Tanahun region, supporting our local farming community.",
+      image: "/news/organic-vegetables.jpg",
+      date: "2025-02-25",
+      category: "products",
+      tags: ["organic", "local-farmers", "fresh-produce"],
+      author: "Procurement Team",
+      featured: false
+    },
+    {
+      id: 4,
+      title: "Weekly Discount: 20% Off on Household Essentials",
+      excerpt: "Enjoy 20% discount on all household cleaning supplies and essentials this week. Stock up and save!",
+      content: "This week only, get 20% off on all household essentials including cleaning supplies, toiletries, and daily necessities. Perfect time to stock up and save on your regular shopping.",
+      image: "/news/household-sale.jpg",
+      date: "2025-02-20",
+      category: "offers",
+      tags: ["discount", "household", "sale"],
+      author: "Sales Team",
+      featured: false
+    },
+    {
+      id: 5,
+      title: "Community Cleanliness Drive - Join Us!",
+      excerpt: "Lasata organizes community cleanliness drive in Vyas Municipality. Volunteers welcome! Refreshments provided.",
+      content: "As part of our community commitment, we're organizing a cleanliness drive in Vyas Municipality. Join us this Saturday to help keep our community clean and beautiful. All volunteers will receive refreshments and a small token of appreciation.",
+      image: "/news/cleanliness-drive.jpg",
+      date: "2025-02-15",
+      category: "community",
+      tags: ["community-service", "cleanliness", "volunteer"],
+      author: "Community Team",
+      featured: false,
+      location: "Vyas Municipality Park",
+      time: "7:00 AM - 10:00 AM"
+    },
+    {
+      id: 6,
+      title: "Extended Store Hours for Festive Season",
+      excerpt: "To serve you better during the festive season, we're extending our store hours until midnight.",
+      content: "During the upcoming festive season, we're extending our store hours to serve you better. Now open from 8:00 AM to 12:00 AM midnight. More time for your shopping convenience!",
+      image: "/news/extended-hours.jpg",
+      date: "2025-02-10",
+      category: "announcements",
+      tags: ["extended-hours", "festive-season", "convenience"],
+      author: "Management",
+      featured: false
+    },
+    {
+      id: 7,
+      title: "New Payment Method: Digital Wallets Accepted",
+      excerpt: "We now accept eSewa, Khalti, and other digital wallets for faster and convenient payments.",
+      content: "Making your shopping experience more convenient! We now accept all major digital wallets including eSewa, Khalti, and mobile banking. Fast, secure, and contactless payments available.",
+      image: "/news/digital-payments.jpg",
+      date: "2025-02-05",
+      category: "announcements",
+      tags: ["digital-payments", "esewa", "khalti"],
+      author: "Finance Team",
+      featured: false
+    },
+    {
+      id: 8,
+      title: "Customer Appreciation Week - Special Surprises!",
+      excerpt: "Celebrating our valued customers with daily surprises, discounts, and loyalty rewards all week long.",
+      content: "To show our appreciation for your continued support, we're celebrating Customer Appreciation Week with daily surprises, exclusive discounts, and special loyalty rewards for our regular customers.",
+      image: "/news/customer-appreciation.jpg",
+      date: "2025-02-01",
+      category: "events",
+      tags: ["customer-appreciation", "loyalty", "surprises"],
+      author: "Customer Service Team",
+      featured: false
     }
+  ];
+
+  const filteredUpdates = newsUpdates.filter(update => {
+    const matchesCategory = activeCategory === "all" || update.category === activeCategory;
+    const matchesSearch = update.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         update.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         update.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
+
+  const featuredUpdates = newsUpdates.filter(update => update.featured);
+
+  const formatDate = (dateString: string): string => {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
+  const NewsCard: React.FC<NewsCardProps> = ({ update, featured = false }) => (
+    <div className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 ${
+      featured ? 'lg:col-span-2' : ''
+    }`}>
+      <div className="relative">
+        <img
+          src={update.image}
+          alt={update.title}
+          className={`w-full object-cover ${featured ? 'h-64' : 'h-48'}`}
+        />
+        <div className="absolute top-4 left-4">
+          <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium capitalize">
+            {update.category}
+          </span>
+        </div>
+        {update.featured && (
+          <div className="absolute top-4 right-4">
+            <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              Featured
+            </span>
+          </div>
+        )}
+      </div>
+      
+      <div className="p-6">
+        <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+          <div className="flex items-center gap-1">
+            <FiCalendar size={14} />
+            <span>{formatDate(update.date)}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <FiTag size={14} />
+            <span className="capitalize">{update.author}</span>
+          </div>
+        </div>
 
-  const features = [
-    {
-      icon: FiShoppingBag,
-      title: "Wide Product Selection",
-      description: "Everything from groceries to household essentials in one place"
-    },
-    {
-      icon: FiTruck,
-      title: "Fast Delivery",
-      description: "Quick and reliable delivery to your doorstep"
-    },
-    {
-      icon: FiStar,
-      title: "Quality Guaranteed",
-      description: "Fresh products with quality you can trust"
-    },
-    {
-      icon: FiUsers,
-      title: "Community Focused",
-      description: "Serving our local community for over 25 years"
-    }
-  ];
+        <h3 className={`font-bold text-gray-900 mb-3 ${featured ? 'text-2xl' : 'text-xl'}`}>
+          {update.title}
+        </h3>
+        
+        <p className="text-gray-600 mb-4 leading-relaxed">
+          {update.excerpt}
+        </p>
 
-  const categories = [
-    {
-      name: "Groceries",
-      image: "/categories/groceries.jpg",
-      items: "500+ items"
-    },
-    {
-      name: "Household Essentials",
-      image: "/categories/household.jpg",
-      items: "300+ items"
-    },
-    {
-      name: "Personal Care",
-      image: "/categories/personal-care.jpg",
-      items: "200+ items"
-    },
-    {
-      name: "Snacks & Drinks",
-      image: "/categories/snacks.jpg",
-      items: "150+ items"
-    }
-  ];
+        {(update.location || update.time) && (
+          <div className="bg-gray-50 p-3 rounded-lg mb-4">
+            {update.location && (
+              <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
+                <FiMapPin size={14} />
+                <span>{update.location}</span>
+              </div>
+            )}
+            {update.time && (
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <FiClock size={14} />
+                <span>{update.time}</span>
+              </div>
+            )}
+          </div>
+        )}
 
-  const testimonials = [
-    {
-      name: "Ram Bahadur",
-      role: "Regular Customer",
-      comment: "Lasata has been my family's trusted store for years. The quality and service never disappoint!",
-      rating: 5
-    },
-    {
-      name: "Sita Sharma",
-      role: "Local Resident",
-      comment: "From their physical store to Sajilo Snacks online, Lasata makes shopping so convenient.",
-      rating: 5
-    },
-    {
-      name: "Hari Prasad",
-      role: "Business Owner",
-      comment: "The freshness of their products and the friendly staff keep me coming back every week.",
-      rating: 4
-    }
-  ];
+        <div className="flex flex-wrap gap-2 mb-4">
+          {update.tags.map((tag: string, index: number) => (
+            <span
+              key={index}
+              className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium"
+            >
+              #{tag}
+            </span>
+          ))}
+        </div>
+
+        {/* <button className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors duration-200">
+          Read More <FiArrowRight size={16} />
+        </button> */}
+      </div>
+    </div>
+  );
 
   return (
-    <div className="min-h-screen">
-      {/* Video Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background */}
-        <video
-          ref={videoRef}
-          autoPlay
-          muted={isMuted}
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="/video-poster.jpg"
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-          {/* Fallback image if video doesn't load */}
-          <img src="/hero-fallback.jpg" alt="Lasata Store" className="w-full h-full object-cover" />
-        </video>
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
-        {/* Video Controls */}
-        <div className="absolute bottom-6 right-6 flex gap-3 z-20">
-          <button
-            onClick={toggleVideoPlayback}
-            className="bg-white bg-opacity-20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-opacity-30 transition-all duration-200"
-          >
-            {isVideoPlaying ? <FiPause size={20} /> : <FiPlay size={20} />}
-          </button>
-          <button
-            onClick={toggleMute}
-            className="bg-white bg-opacity-20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-opacity-30 transition-all duration-200"
-          >
-            {isMuted ? <FiVolumeX size={20} /> : <FiVolume2 size={20} />}
-          </button>
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm mb-6">
-            <FiStar className="text-yellow-300" />
-            <span>Trusted Since 2000 • Now Online</span>
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-            Welcome to
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300 mt-2">
-              Lasata
-            </span>
-          </h1>
-
-          <p className="text-xl sm:text-2xl lg:text-3xl mb-8 opacity-90 max-w-4xl mx-auto leading-relaxed">
-            Your Local Shopping Destination for 
-            <span className="block">Comfort, Quality, and Happiness</span>
-          </p>
-
-          <p className="text-lg sm:text-xl mb-10 opacity-80 max-w-2xl mx-auto">
-            From our family to yours - 25 years of trusted service, now available both in-store and online
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="https://sajilosnacks.kyte.site"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 flex items-center gap-2 text-lg"
-            >
-              Shop Online Now
-              <FiArrowRight />
-            </a>
-            <a
-              href="/about"
-              className="bg-white bg-opacity-20 backdrop-blur-sm hover:bg-opacity-30 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 border border-white border-opacity-30"
-            >
-              Learn Our Story
-            </a>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 bg-white">
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-900 to-purple-800 text-white py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Lasata?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Experience the perfect blend of traditional values and modern convenience
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+              News & Updates
+            </h1>
+            <p className="text-xl lg:text-2xl opacity-90 mb-8">
+              Stay informed about the latest from Lasata Department Store
+            </p>
+            <p className="text-lg opacity-80 max-w-2xl mx-auto">
+              Discover new products, special offers, community events, and everything happening at your favorite local store
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <div
-                  key={index}
-                  className="text-center p-6 group hover:transform hover:scale-105 transition-all duration-300"
-                >
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-blue-200 group-hover:to-purple-200 transition-all duration-300">
-                    <Icon className="text-blue-600 group-hover:text-purple-600" size={32} />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
 
-      {/* About Preview Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      {/* Search and Filter Section */}
+      <section className="py-8 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            <div className="lg:w-1/2">
-              <img
-                src="/store-interior.jpg"
-                alt="Lasata Store Interior"
-                className="rounded-2xl shadow-2xl w-full h-auto"
+          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+            {/* Search Bar */}
+            <div className="relative w-full lg:w-96">
+              <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <input
+                type="text"
+                placeholder="Search news and updates..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
               />
             </div>
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                A Legacy of Trust & Comfort
-              </h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                For over 25 years, Lasata has been more than just a store - it's been a trusted part of our community. 
-                From our humble beginnings as a small grocery shop to today's modern department store, our commitment 
-                to quality and service remains unchanged.
-              </p>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                The word <span className="font-semibold text-blue-900">"Lasata" (लसता)</span> means comfort, satisfaction, 
-                and happiness - values we bring to every customer interaction.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="/about"
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 text-center"
+
+            {/* Category Filter */}
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category: Category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                    activeCategory === category.id
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
                 >
-                  Our Story
-                </a>
-                <a
-                  href="/history"
-                  className="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 text-center"
-                >
-                  Our History
-                </a>
-              </div>
+                  {category.name}
+                </button>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="py-20 bg-white">
+      {/* Featured Updates */}
+      {featuredUpdates.length > 0 && (
+        <section className="py-12">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Updates</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {featuredUpdates.map((update: NewsUpdate) => (
+                <NewsCard key={update.id} update={update} featured={true} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* All Updates */}
+      <section className="py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Shop by Category
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl font-bold text-gray-900">
+              {activeCategory === 'all' ? 'All Updates' : categories.find(c => c.id === activeCategory)?.name}
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover our wide range of quality products for all your daily needs
-            </p>
+            <span className="text-gray-500">
+              {filteredUpdates.length} {filteredUpdates.length === 1 ? 'update' : 'updates'}
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((category, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
-              >
-                <div className="bg-gray-200 h-64 flex items-center justify-center text-gray-500">
-                  <div className="text-center">
-                    <div className="text-4xl mb-2">🛒</div>
-                    <p className="text-sm">{category.name}</p>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-                  <div className="text-white">
-                    <h3 className="text-xl font-bold mb-1">{category.name}</h3>
-                    <p className="text-blue-200">{category.items}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          {filteredUpdates.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredUpdates.map((update: NewsUpdate) => (
+                <NewsCard key={update.id} update={update} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <div className="text-gray-400 text-6xl mb-4">📰</div>
+              <h3 className="text-xl font-semibold text-gray-600 mb-2">No updates found</h3>
+              <p className="text-gray-500">Try adjusting your search or filter criteria</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      {/* Newsletter Subscription */}
+      <section className="py-16 bg-blue-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              What Our Customers Say
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Stay Updated
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Don't just take our word for it - hear from our satisfied community members
+            <p className="text-xl opacity-90 mb-8">
+              Get the latest news and offers directly in your inbox
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <FiStar
-                      key={i}
-                      className={`${
-                        i < testimonial.rating
-                          ? "text-yellow-400 fill-current"
-                          : "text-gray-300"
-                      }`}
-                      size={16}
-                    />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 italic leading-relaxed">
-                  "{testimonial.comment}"
-                </p>
-                <div>
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <p className="text-gray-600 text-sm">{testimonial.role}</p>
-                </div>
-              </div>
-            ))}
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="flex-1 px-4 py-3 bg-white rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-300 focus:outline-none"
+              />
+              <button className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200">
+                Subscribe
+              </button>
+            </div>
           </div>
         </div>
       </section>
-
-    
     </div>
   );
 }
