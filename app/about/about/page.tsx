@@ -32,7 +32,7 @@ export default function AboutPage() {
   ];
 
   const storeInfo = [
-    { icon: FiClock, text: "8AM – Midnight 12:00AM" },
+    // { icon: FiClock, text: "8AM – Midnight 12:00AM" },
     { icon: FiMapPin, text: "Vyas Municipality, Tanahun" },
     { icon: FiPhone, text: "9843682127" }
   ];
