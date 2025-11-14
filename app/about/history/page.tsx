@@ -39,7 +39,7 @@ export default function HistoryPage() {
       description:
         "Lasata stands as a symbol of trust, comfort, and community - serving generations with the same family values while embracing modern convenience.",
       icon: FiHeart,
-      images: ["/history/1.jpg"],
+      images: "",
       color: "from-orange-100 to-orange-50",
     },
   ];
@@ -263,7 +263,7 @@ export default function HistoryPage() {
                         <div className=" rounded-2xl h-48 lg:h-64 flex items-center justify-center text-gray-500">
                           <div className="text-center">
                             <ImageSlider
-                              images={item.images}
+                              images={item?.images}
                               year={item.year}
                               title={item.title}
                               width="w-110"

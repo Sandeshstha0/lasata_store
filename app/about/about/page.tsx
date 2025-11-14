@@ -177,7 +177,7 @@ export default function AboutPage() {
       </section>
 
       {/* Sajilo Snacks Section */}
-      <section className="py-16 lg:py-20 bg-gradient-to-br from-green-50 to-blue-50">
+      <section className="py-16 lg:py-20 bg-gradient-to-br from-yellow-50 to-blue-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-16">
             {/* Image Section */}
@@ -191,7 +191,7 @@ export default function AboutPage() {
 
             {/* Content Section */}
             <div className="lg:w-1/2">
-              <div className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <div className="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
                 Online Sub-brand
               </div>
               
@@ -201,7 +201,7 @@ export default function AboutPage() {
 
               <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
                 <p>
-                  <span className="font-semibold text-green-700">&#34;Sajilo&#34; (सजिलो)</span> means 
+                  <span className="font-semibold text-yellow-700">&#34;Sajilo&#34; (सजिलो)</span> means 
                   <span className="italic"> &#34;easy or convenient&#34;</span> in Nepali — perfectly describing 
                   our mission to make online shopping effortless for everyone.
                 </p>
@@ -219,7 +219,7 @@ export default function AboutPage() {
                   from the comfort of their homes.
                 </p>
 
-                <p className="font-semibold text-green-700">
+                <p className="font-semibold text-yellow-700">
                   As Lasata&#39;s official online wing, Sajilo Snacks represents the future of local retail in Nepal — 
                   a trusted, convenient, and accessible digital shopping destination for families everywhere.
                 </p>
@@ -230,13 +230,13 @@ export default function AboutPage() {
                   href="https://sajilosnacks.kyte.site"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 text-center"
+                  className="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 text-center"
                 >
                   Visit Sajilo Snacks Store
                 </a>
                 <a
                   href="/contact"
-                  className="border border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 text-center"
+                  className="border border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 text-center"
                 >
                   Contact Us
                 </a>

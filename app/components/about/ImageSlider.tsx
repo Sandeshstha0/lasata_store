@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 interface ImageSliderProps {
-  images: string[];
+  images: string[] | string;
   year: string;
   title: string;
   autoSlideInterval?: number;
-  width?: string; // Control width
-  height?: string; // Control height
+  width?: string;
+  height?: string;
 }
 
 export const ImageSlider = ({ 
@@ -17,22 +17,25 @@ export const ImageSlider = ({
   year, 
   title, 
   autoSlideInterval = 4000,
-  width = "w-full", // Default to full width
-  height = "h-64" // Default height
+  width = "w-full",
+  height = "h-64"
 }: ImageSliderProps) => {
+  // Normalize images to always be an array
+  const imagesArray = Array.isArray(images) ? images : [images];
+  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageLoading, setImageLoading] = useState(true);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === imagesArray.length - 1 ? 0 : prevIndex + 1
     );
     setImageLoading(true);
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? imagesArray.length - 1 : prevIndex - 1
     );
     setImageLoading(true);
   };
@@ -52,20 +55,20 @@ export const ImageSlider = ({
 
   // Auto slide effect
   useEffect(() => {
-    if (images.length <= 1) return;
+    if (imagesArray.length <= 1) return;
 
     const slideInterval = setInterval(() => {
       nextSlide();
     }, autoSlideInterval);
 
     return () => clearInterval(slideInterval);
-  }, [images.length, autoSlideInterval, currentIndex]);
+  }, [imagesArray.length, autoSlideInterval, currentIndex]);
 
   return (
     <div className={`relative group ${width} ${height}`}>
       {/* Fixed Size Container */}
       <div className="rounded-2xl overflow-hidden relative bg-gray-100 w-full h-full">
-        {images[currentIndex] ? (
+        {imagesArray[currentIndex] ? (
           <div className="w-full h-full relative">
             {/* Loading skeleton */}
             {imageLoading && (
@@ -75,7 +78,7 @@ export const ImageSlider = ({
             )}
             
             <img
-              src={images[currentIndex]}
+              src={imagesArray[currentIndex]}
               alt={`${title} - ${year}`}
               className={`w-full h-full object-cover transition-opacity duration-300 ${
                 imageLoading ? 'opacity-0' : 'opacity-100'
@@ -95,7 +98,7 @@ export const ImageSlider = ({
         )}
         
         {/* Navigation Arrows */}
-        {images.length > 1 && (
+        {imagesArray.length > 1 && (
           <>
             <button
               onClick={prevSlide}
@@ -113,9 +116,9 @@ export const ImageSlider = ({
         )}
 
         {/* Slide Indicator */}
-        {images.length > 1 && (
+        {imagesArray.length > 1 && (
           <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1 z-10">
-            {images.map((_, index) => (
+            {imagesArray.map((_: string, index: number) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
@@ -128,9 +131,9 @@ export const ImageSlider = ({
         )}
 
         {/* Image Counter */}
-        {images.length > 1 && (
+        {imagesArray.length > 1 && (
           <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full z-10">
-            {currentIndex + 1} / {images.length}
+            {currentIndex + 1} / {imagesArray.length}
           </div>
         )}
       </div>
