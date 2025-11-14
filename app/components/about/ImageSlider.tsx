@@ -7,69 +7,85 @@ interface ImageSliderProps {
   images: string[];
   year: string;
   title: string;
-  autoSlideInterval?: number; // Optional prop to customize slide interval
+  autoSlideInterval?: number;
+  width?: string; // Control width
+  height?: string; // Control height
 }
 
 export const ImageSlider = ({ 
   images, 
   year, 
   title, 
-  autoSlideInterval = 4000 // Default to 5 seconds
+  autoSlideInterval = 4000,
+  width = "w-full", // Default to full width
+  height = "h-64" // Default height
 }: ImageSliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
+    setImageLoading(true);
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => 
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
+    setImageLoading(true);
   };
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
+    setImageLoading(true);
+  };
+
+  const handleImageLoad = () => {
+    setImageLoading(false);
+  };
+
+  const handleImageError = () => {
+    setImageLoading(false);
   };
 
   // Auto slide effect
   useEffect(() => {
-    // Only auto-slide if there are multiple images
     if (images.length <= 1) return;
 
     const slideInterval = setInterval(() => {
       nextSlide();
     }, autoSlideInterval);
 
-    // Cleanup interval on component unmount
     return () => clearInterval(slideInterval);
-  }, [images.length, autoSlideInterval]); // Add dependencies
-
-  // Reset auto-slide timer when user interacts with the slider
-  useEffect(() => {
-    if (images.length <= 1) return;
-
-    const resetAutoSlide = () => {
-      // This effect doesn't need to do anything, 
-      // it just restarts the auto-slide when dependencies change
-    };
-    resetAutoSlide();
-  }, [currentIndex, images.length]); // Reset when currentIndex changes
+  }, [images.length, autoSlideInterval, currentIndex]);
 
   return (
-    <div className="relative group">
-      {/* Main Image */}
-      <div className="rounded-2xl h-48 lg:h-64 overflow-hidden relative">
+    <div className={`relative group ${width} ${height}`}>
+      {/* Fixed Size Container */}
+      <div className="rounded-2xl overflow-hidden relative bg-gray-100 w-full h-full">
         {images[currentIndex] ? (
-          <img
-            src={images[currentIndex]}
-            alt={`${title} - ${year}`}
-            className="w-full h-full object-cover"
-          />
+          <div className="w-full h-full relative">
+            {/* Loading skeleton */}
+            {imageLoading && (
+              <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center z-0">
+                <div className="text-gray-400">Loading...</div>
+              </div>
+            )}
+            
+            <img
+              src={images[currentIndex]}
+              alt={`${title} - ${year}`}
+              className={`w-full h-full object-cover transition-opacity duration-300 ${
+                imageLoading ? 'opacity-0' : 'opacity-100'
+              }`}
+              onLoad={handleImageLoad}
+              onError={handleImageError}
+            />
+          </div>
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-gray-500">
+          <div className="w-full h-full flex items-center justify-center text-gray-500 bg-gray-100">
             <div className="text-center">
               <div className="text-4xl mb-2">📸</div>
               <p className="text-sm">Historical Photo</p>
@@ -83,13 +99,13 @@ export const ImageSlider = ({
           <>
             <button
               onClick={prevSlide}
-              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100"
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100 z-10"
             >
               <FiChevronLeft size={16} />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100 z-10"
             >
               <FiChevronRight size={16} />
             </button>
@@ -98,7 +114,7 @@ export const ImageSlider = ({
 
         {/* Slide Indicator */}
         {images.length > 1 && (
-          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1">
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1 z-10">
             {images.map((_, index) => (
               <button
                 key={index}
@@ -113,7 +129,7 @@ export const ImageSlider = ({
 
         {/* Image Counter */}
         {images.length > 1 && (
-          <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
+          <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full z-10">
             {currentIndex + 1} / {images.length}
           </div>
         )}

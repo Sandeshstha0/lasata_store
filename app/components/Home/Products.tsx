@@ -73,7 +73,7 @@ export default function Products() {
                   href={product.storeLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded transition-colors text-center block"
+                  className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-2 px-4 rounded transition-colors text-center block"
                 >
                   Visit Store
                 </a>

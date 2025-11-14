@@ -1,4 +1,3 @@
-
 "use client";
 
 import { ImageSlider } from "@/app/components/about/ImageSlider";
@@ -17,7 +16,7 @@ export default function HistoryPage() {
       color: "from-blue-100 to-blue-50",
     },
     {
-      year: "2000–2010",
+      year: "2000–2024",
       title: "Growing with the Community",
       description:
         "The small grocery became an integral part of the community's daily life. The son grew up watching his father's dedication and the respect earned through honest work.",
@@ -27,7 +26,7 @@ export default function HistoryPage() {
     },
     {
       year: "2025",
-      title: "The Dream Realized",
+      title: "Embracing Change, Moving Forward",
       description:
         "Lasata Department Store was officially established, combining modern retail standards with the same warmth and trust that defined the original family shop.",
       icon: FiStar,
@@ -36,14 +35,11 @@ export default function HistoryPage() {
     },
     {
       year: "Present",
-      title: "Continuing the Legacy",
+      title: "The Dream Realized",
       description:
         "Lasata stands as a symbol of trust, comfort, and community - serving generations with the same family values while embracing modern convenience.",
       icon: FiHeart,
-      images: [
-        "/history/family-legacy-1.jpg",
-        
-      ],
+      images: ["/history/1.jpg"],
       color: "from-orange-100 to-orange-50",
     },
   ];
@@ -270,6 +266,8 @@ export default function HistoryPage() {
                               images={item.images}
                               year={item.year}
                               title={item.title}
+                              width="w-110"
+                              height="h-64"
                             />
                           </div>
                         </div>
