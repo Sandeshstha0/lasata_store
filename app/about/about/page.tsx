@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { FiShoppingBag, FiTruck, FiHeart, FiStar, FiClock, FiMapPin, FiPhone } from "react-icons/fi";
+import { FiShoppingBag, FiHeart, FiStar, FiMapPin, FiPhone } from "react-icons/fi";
 
 export default function AboutPage() {
   const stats = [
