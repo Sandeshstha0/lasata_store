@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { FiCalendar, FiClock, FiMapPin, FiTag, FiArrowRight, FiSearch } from "react-icons/fi";
+import { FiCalendar, FiClock, FiMapPin, FiTag, FiSearch } from "react-icons/fi";
 
 // Type definitions
 interface NewsUpdate {
