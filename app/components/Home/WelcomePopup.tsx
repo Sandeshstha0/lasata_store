@@ -3,7 +3,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { FiX, FiGift, FiShoppingBag, FiMapPin, } from "react-icons/fi";
+import { FiX, FiGift, FiShoppingBag, FiMapPin } from "react-icons/fi";
 
 interface PopupData {
   id: number;
@@ -27,7 +27,8 @@ export default function WelcomePopup() {
     {
       id: 1,
       title: "🎉 Welcome to Lasata!",
-      message: "Discover comfort, satisfaction, and happiness in every visit. Your local shopping destination in Tanahun.",
+      message:
+        "Discover comfort, satisfaction, and happiness in every visit. Your local shopping destination in Tanahun.",
       image: "/popup/welcome.jpg",
       ctaText: "Explore Store",
       ctaLink: "/about",
@@ -35,12 +36,13 @@ export default function WelcomePopup() {
       secondaryLink: "/offers",
       type: "welcome",
       showCloseButton: true,
-      autoClose: 8
+      autoClose: 8,
     },
     {
       id: 2,
       title: "🚚 Free Home Delivery!",
-      message: "Get free delivery on orders above Rs. 1000. Fast and reliable service throughout Tanahun.",
+      message:
+        "Get free delivery on orders above Rs. 1000. Fast and reliable service throughout Tanahun.",
       image: "/popup/delivery.jpg",
       ctaText: "Learn More",
       ctaLink: "/services/delivery",
@@ -48,19 +50,20 @@ export default function WelcomePopup() {
       secondaryLink: "/products",
       type: "offer",
       showCloseButton: true,
-      autoClose: 10
+      autoClose: 10,
     },
     {
       id: 3,
       title: "📱 Stay Connected",
-      message: "Get latest updates, exclusive offers, and shopping tips delivered to your inbox.",
+      message:
+        "Get latest updates, exclusive offers, and shopping tips delivered to your inbox.",
       ctaText: "Subscribe Now",
       ctaLink: "/newsletter",
       secondaryText: "Maybe Later",
       type: "newsletter",
       showCloseButton: true,
-      autoClose: 12
-    }
+      autoClose: 12,
+    },
   ];
 
   // Select a random popup
@@ -75,7 +78,7 @@ export default function WelcomePopup() {
       const popup = getRandomPopup();
       setCurrentPopup(popup);
       setIsVisible(true);
-      
+
       // Auto close if specified
       if (popup.autoClose) {
         setTimeout(() => {
@@ -100,26 +103,26 @@ export default function WelcomePopup() {
   // Prevent background scroll when popup is open
   useEffect(() => {
     if (isVisible) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [isVisible]);
 
   // Close on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isVisible) {
+      if (e.key === "Escape" && isVisible) {
         closePopup();
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
   }, [isVisible]);
 
   if (!currentPopup) return null;
@@ -127,20 +130,22 @@ export default function WelcomePopup() {
   return (
     <>
       {/* Backdrop */}
-      <div 
-        className={`fixed inset-0 bg-black bg-opacity-50 z-[100] transition-opacity duration-300 ${
-          isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      <div
+        className={`fixed inset-0 backdrop-blur-sm bg-black bg-opacity-0 z-[100] transition-all duration-300 ${
+          isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
+   
         onClick={closePopup}
       />
-
       {/* Popup Container */}
-      <div 
+      <div
         className={`fixed inset-0 z-[101] flex items-center justify-center p-4 transition-all duration-300 ${
-          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+          isVisible
+            ? "opacity-100 scale-100"
+            : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
-        <div 
+        <div
           className="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto relative border-2 border-yellow-200"
           onClick={(e) => e.stopPropagation()}
         >
@@ -148,7 +153,7 @@ export default function WelcomePopup() {
           {currentPopup.showCloseButton && (
             <button
               onClick={closePopup}
-              className="absolute top-4 right-4 z-10 bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-700 p-2 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="absolute cursor-pointer top-4 right-4 z-10 bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-700 p-2 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               <FiX size={20} />
             </button>
@@ -190,7 +195,9 @@ export default function WelcomePopup() {
               <div className="space-y-2 text-sm text-gray-700">
                 <div className="flex justify-between">
                   <span>📍 Location:</span>
-                  <span className="font-medium">Vyas Municipality, Tanahun</span>
+                  <span className="font-medium">
+                    Vyas Municipality, Tanahun
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span>🕒 Hours:</span>
@@ -257,22 +264,26 @@ export default function WelcomePopup() {
           </div>
 
           {/* Auto-close progress bar */}
-          {currentPopup.autoClose && (
+          {/* {currentPopup.autoClose && (
             <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200 rounded-b-2xl">
-              <div 
+              <div
                 className="h-full bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-b-2xl transition-all duration-100 ease-linear"
-                style={{ 
-                  animation: `shrink ${currentPopup.autoClose}s linear forwards` 
+                style={{
+                  animation: `shrink ${currentPopup.autoClose}s linear forwards`,
                 }}
               />
               <style jsx>{`
                 @keyframes shrink {
-                  from { width: 100%; }
-                  to { width: 0%; }
+                  from {
+                    width: 100%;
+                  }
+                  to {
+                    width: 0%;
+                  }
                 }
               `}</style>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </>
