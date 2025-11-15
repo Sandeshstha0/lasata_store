@@ -134,7 +134,6 @@ export default function WelcomePopup() {
         className={`fixed inset-0 backdrop-blur-sm bg-black bg-opacity-0 z-[100] transition-all duration-300 ${
           isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
-   
         onClick={closePopup}
       />
       {/* Popup Container */}
@@ -145,145 +144,31 @@ export default function WelcomePopup() {
             : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
+        
         <div
-          className="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto relative border-2 border-yellow-200"
-          onClick={(e) => e.stopPropagation()}
+          className={` fixed inset-0 bg-black bg-opacity-50 z-[100] transition-opacity duration-300 ${
+            isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+          onClick={closePopup}
         >
-          {/* Close Button */}
-          {currentPopup.showCloseButton && (
+          {/* Popup Content */}
+          <div
+            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg z-[101]"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+          >
+            <img
+              src="/popupimage.jpg"
+              alt="Popup Image"
+              className="w-full h-auto max-w-md rounded"
+            />
+            {/* Optional: Close button */}
             <button
               onClick={closePopup}
-              className="absolute cursor-pointer top-4 right-4 z-10 bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-700 p-2 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 cursor-pointer text-2xl font-bold"
             >
-              <FiX size={20} />
+              ×
             </button>
-          )}
-
-          {/* Popup Content */}
-          <div className="relative">
-            {/* Header with Gradient */}
-            <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-t-2xl">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                  <FiGift size={20} />
-                </div>
-                <h2 className="text-2xl font-bold">{currentPopup.title}</h2>
-              </div>
-              <p className="text-blue-100 text-lg leading-relaxed">
-                {currentPopup.message}
-              </p>
-            </div>
-
-            {/* Image Section (if available) */}
-            {currentPopup.image && (
-              <div className="relative h-48 bg-gradient-to-br from-blue-50 to-yellow-50">
-                <img
-                  src={currentPopup.image}
-                  alt={currentPopup.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent"></div>
-              </div>
-            )}
-
-            {/* Store Info Section */}
-            <div className="p-6 bg-gradient-to-br from-gray-50 to-blue-50 border-b border-gray-200">
-              <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <FiMapPin className="text-blue-600" />
-                Visit Our Store
-              </h3>
-              <div className="space-y-2 text-sm text-gray-700">
-                <div className="flex justify-between">
-                  <span>📍 Location:</span>
-                  <span className="font-medium">
-                    Vyas Municipality, Tanahun
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span>🕒 Hours:</span>
-                  <span className="font-medium">8AM - 12AM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>📞 Contact:</span>
-                  <span className="font-medium">9843682127</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="p-6">
-              <div className="space-y-4">
-                {/* Primary CTA */}
-                <a
-                  href={currentPopup.ctaLink}
-                  onClick={closePopup}
-                  className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:scale-105"
-                >
-                  <FiShoppingBag size={20} />
-                  {currentPopup.ctaText}
-                </a>
-
-                {/* Secondary CTA */}
-                {currentPopup.secondaryText && (
-                  <a
-                    href={currentPopup.secondaryLink || "#"}
-                    onClick={closePopup}
-                    className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2"
-                  >
-                    {currentPopup.secondaryText}
-                  </a>
-                )}
-
-                {/* Quick Actions */}
-                <div className="flex gap-3 pt-4 border-t border-gray-200">
-                  <a
-                    href="/products"
-                    onClick={closePopup}
-                    className="flex-1 text-center bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm"
-                  >
-                    Browse Products
-                  </a>
-                  <a
-                    href="/contact"
-                    onClick={closePopup}
-                    className="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm"
-                  >
-                    Get Directions
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Footer */}
-            <div className="bg-gray-50 p-4 rounded-b-2xl border-t border-gray-200">
-              <div className="flex items-center justify-between text-xs text-gray-500">
-                <span>Lasata Department Store</span>
-                <span>Your Local Shopping Destination</span>
-              </div>
-            </div>
           </div>
-
-          {/* Auto-close progress bar */}
-          {/* {currentPopup.autoClose && (
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200 rounded-b-2xl">
-              <div
-                className="h-full bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-b-2xl transition-all duration-100 ease-linear"
-                style={{
-                  animation: `shrink ${currentPopup.autoClose}s linear forwards`,
-                }}
-              />
-              <style jsx>{`
-                @keyframes shrink {
-                  from {
-                    width: 100%;
-                  }
-                  to {
-                    width: 0%;
-                  }
-                }
-              `}</style>
-            </div>
-          )} */}
         </div>
       </div>
     </>
