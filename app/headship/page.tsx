@@ -26,7 +26,7 @@ export default function LeadershipPage() {
       id: 2,
       name: "Nischal Shrestha",
       position: "Founder & Managing Director",
-      image: "/6.jpg",
+      image: "/7.jpg",
       description:
         "Visionary entrepreneur with a passion for serving the local community and continuing the family legacy of honest business practices.",
       experience: "10+ years in retail business",
