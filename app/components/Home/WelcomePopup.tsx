@@ -3,7 +3,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { FiX, FiGift, FiShoppingBag, FiMapPin } from "react-icons/fi";
+
 
 interface PopupData {
   id: number;

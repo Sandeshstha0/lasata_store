@@ -93,30 +93,7 @@ export default function LeadershipPage() {
     },
   ];
 
-  const timeline = [
-    {
-      year: "2000",
-      title: "Humble Beginnings",
-      description:
-        "Small grocery shop opened by Senior Shrestha in Vyas Municipality",
-    },
-    {
-      year: "2015",
-      title: "Next Generation",
-      description:
-        "Nischal Shrestha joins the business, bringing modern vision",
-    },
-    {
-      year: "2020",
-      title: "Digital Transformation",
-      description: "Started planning for online presence and modern retail",
-    },
-    {
-      year: "2025",
-      title: "Lasata Department Store",
-      description: "Grand opening of the modern department store",
-    },
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-yellow-50">
