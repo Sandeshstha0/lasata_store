@@ -13,6 +13,7 @@ import {
   FiAward,
   FiBriefcase,
 } from "react-icons/fi";
+import { IoPerson } from "react-icons/io5";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
 import { GrGallery } from "react-icons/gr";
 import Link from "next/link";
@@ -55,11 +56,13 @@ export default function Navbar() {
         { href: "/about/history", label: "History", icon: FiBriefcase },
       ],
     },
+     { href: "/headship", label: "Headship", icon: IoPerson  },
     {
       href: "/newsandupdate",
       label: "News And Updates",
       icon: MdOutlineTipsAndUpdates,
     },
+    
     { href: "/gallery", label: "Gallery", icon: GrGallery },
     { href: "/contact", label: "Contact", icon: FiMail },
   ];

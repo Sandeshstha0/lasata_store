@@ -129,14 +129,15 @@ export default function WelcomePopup() {
 
   return (
     <>
-      {/* Backdrop */}
+      {/* Backdrop with blur effect */}
       <div
-        className={`fixed inset-0 backdrop-blur-sm bg-black bg-opacity-0 z-[100] transition-all duration-300 ${
+        className={`fixed inset-0 backdrop-blur-sm  bg-opacity-20 z-[100] transition-all duration-300 ${
           isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={closePopup}
       />
-      {/* Popup Container */}
+
+      {/* Popup Content */}
       <div
         className={`fixed inset-0 z-[101] flex items-center justify-center p-4 transition-all duration-300 ${
           isVisible
@@ -144,31 +145,22 @@ export default function WelcomePopup() {
             : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
-        
         <div
-          className={` fixed inset-0 bg-black bg-opacity-50 z-[100] transition-opacity duration-300 ${
-            isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
-          onClick={closePopup}
+          className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative"
+          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
         >
-          {/* Popup Content */}
-          <div
-            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg z-[101]"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+          <img
+            src="/popupimage.jpg"
+            alt="Popup Image"
+            className="w-full h-auto rounded"
+          />
+          {/* Close button */}
+          <button
+            onClick={closePopup}
+            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 cursor-pointer text-2xl font-bold"
           >
-            <img
-              src="/popupimage.jpg"
-              alt="Popup Image"
-              className="w-full h-auto max-w-md rounded"
-            />
-            {/* Optional: Close button */}
-            <button
-              onClick={closePopup}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 cursor-pointer text-2xl font-bold"
-            >
-              ×
-            </button>
-          </div>
+            ×
+          </button>
         </div>
       </div>
     </>

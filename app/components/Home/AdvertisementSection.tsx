@@ -28,8 +28,8 @@ export default function AdvertisementSection() {
   const advertisements: Advertisement[] = [
     {
       id: 1,
-      title: "Grand Opening Sale!",
-      description: "Enjoy up to 50% off on all products. Limited time offer for our valued customers.",
+      title: "Ads",
+      description: "Advertisement.",
       image: "/ads/grand-opening-sale.jpg",
       link: "/offers/grand-opening",
       ctaText: "Shop Now",
@@ -40,8 +40,8 @@ export default function AdvertisementSection() {
     },
     {
       id: 2,
-      title: "Free Home Delivery",
-      description: "Get free delivery on orders above Rs. 1000. Fast and reliable service in Tanahun.",
+     title: "Ads",
+      description: "Advertisement.",
       image: "/ads/free-delivery.jpg",
       link: "/services/delivery",
       ctaText: "Learn More",
@@ -50,8 +50,8 @@ export default function AdvertisementSection() {
     },
     {
       id: 3,
-      title: "New Organic Products",
-      description: "Discover our latest range of organic vegetables and locally sourced fresh products.",
+     title: "Ads",
+      description: "Advertisement.",
       image: "/ads/new-products.jpg",
       link: "/products/new",
       ctaText: "Explore",
@@ -61,26 +61,26 @@ export default function AdvertisementSection() {
     },
     {
       id: 4,
-      title: "Loyalty Program",
-      description: "Join our loyalty program and earn points on every purchase. Exclusive rewards await!",
+     title: "Ads",
+      description: "Advertisement.",
       image: "/ads/loyalty-program.jpg",
       link: "/loyalty",
       ctaText: "Join Now",
       category: "program",
       duration: 8
     },
-    {
-      id: 5,
-      title: "Festive Special Offers",
-      description: "Special discounts and bundles for the upcoming festival season. Don't miss out!",
-      image: "/ads/festive-offers.jpg",
-      link: "/offers/festive",
-      ctaText: "View Offers",
-      category: "seasonal",
-      featured: true,
-      duration: 5,
-      discount: "30% OFF"
-    }
+    // {
+    //   id: 5,
+    //   title: "Festive Special Offers",
+    //   description: "Special discounts and bundles for the upcoming festival season. Don't miss out!",
+    //   image: "/ads/festive-offers.jpg",
+    //   link: "/offers/festive",
+    //   ctaText: "View Offers",
+    //   category: "seasonal",
+    //   featured: true,
+    //   duration: 5,
+    //   discount: "30% OFF"
+    // }
   ];
 
   const nextAd = () => {
@@ -137,11 +137,11 @@ export default function AdvertisementSection() {
               Special Promotions
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
-              Exclusive <span className="text-blue-600">Offers</span> & <span className="text-yellow-600">Deals</span>
+              Place  <span className="text-blue-600">Your</span>  <span className="text-yellow-600">Advertisement</span>
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            {/* <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Don&#39;t miss these amazing opportunities from Lasata Department Store
-            </p>
+            </p> */}
           </div>
 
           <div className="max-w-6xl mx-auto">
@@ -274,7 +274,7 @@ export default function AdvertisementSection() {
             </div>
 
             {/* Small Advertisement Grid */}
-            <div className="mt-12">
+            {/* <div className="mt-12">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 More <span className="text-blue-600">Exciting</span> Offers
               </h3>
@@ -291,7 +291,7 @@ export default function AdvertisementSection() {
                         alt={ad.title}
                         className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
                       />
-                      {/* Gradient Overlay */}
+                   
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       
                       {ad.discount && (
@@ -327,7 +327,7 @@ export default function AdvertisementSection() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

@@ -20,10 +20,10 @@ export default function page() {
             {/* Centered Profile Image */}
 
             <div className="  px-8 text-left border-b-2 border-gray-400 bg-gray-50 mb-6">
-              <h3 className="text-5xl text-blue-800 font-bold">
+              <h3 className="text-5xl text-blue-800 font-bold mb-4">
                 NISCHAL SHRESTHA
               </h3>
-              <p className="text-lg font-semibold mt-2">Founder & CEO</p>
+              {/* <p className="text-lg font-semibold mt-2">Founder & CEO</p> */}
             </div>
 
             {/* Description */}
