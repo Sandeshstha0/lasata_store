@@ -26,7 +26,7 @@ export default function LeadershipPage() {
       id: 2,
       name: "Nischal Shrestha",
       position: "Founder & Managing Director",
-      image: "/3.jpg",
+      image: "/7.jpg",
       description:
         "Visionary entrepreneur with a passion for serving the local community and continuing the family legacy of honest business practices.",
       experience: "10+ years in retail business",
@@ -61,7 +61,7 @@ export default function LeadershipPage() {
       quote:
         "Technology should serve people, not complicate their lives. We're building digital solutions that make shopping at Lasata effortless and enjoyable for every customer.",
       email: "advisor@lasata.com",
-      legacy: true,
+      legacy: false,
     },
   ];
 
