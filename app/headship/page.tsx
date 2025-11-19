@@ -47,7 +47,7 @@ export default function LeadershipPage() {
       id: 1,
       name: "Sandesh Shrestha",
       position: "CTO - Chief Technology Officer",
-      image: "/6.jpg",
+      image: "/7.jpg",
       description:
         "Leading Lasata's digital transformation and technological innovation to create seamless shopping experiences across both physical and digital platforms.",
       experience: "25+ years in retail",
