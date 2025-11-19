@@ -16,7 +16,7 @@ export default function HistoryPage() {
       color: "from-blue-100 to-blue-50",
     },
     {
-      year: "2000–2024",
+      year: "2000–2010",
       title: "Growing with the Community",
       description:
         "The small grocery became an integral part of the community's daily life. The son grew up watching his father's dedication and the respect earned through honest work.",
@@ -25,16 +25,16 @@ export default function HistoryPage() {
       color: "from-green-100 to-green-50",
     },
     {
-      year: "2025",
+      year: "2011-2025",
       title: "Embracing Change, Moving Forward",
       description:
-        "Lasata Department Store was officially established, combining modern retail standards with the same warmth and trust that defined the original family shop.",
+        "Bishnu Impex has embraced change with time, moving forward with a renewed spirit while staying true to the values that built its foundation.",
       icon: FiStar,
       images: ["/history/growth-1.jpg", "/history/growth-2.jpg"],
       color: "from-purple-100 to-purple-50",
     },
     {
-      year: "Present",
+      year: "2026",
       title: "The Dream Realized",
       description:
         "Lasata stands as a symbol of trust, comfort, and community - serving generations with the same family values while embracing modern convenience.",
