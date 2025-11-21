@@ -5,13 +5,14 @@ import Products from "./components/Home/Products";
 import VideoSection from "./components/Home/VideoSection";
 import WelcomePopup from "./components/Home/WelcomePopup";
 
+
 export default function Home() {
   return (
     <>
-      <div className=" ">
+      <div className="relative ">
         <VideoSection />
         <WelcomePopup />
-        <Hero />
+       <Hero /> 
         <NewsFeed />
         <AdvertisementSection />
         <Products />

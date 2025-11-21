@@ -1,47 +1,93 @@
-
 "use client";
+import { motion, Variants } from "framer-motion";
 import "swiper/css";
 import "swiper/css/pagination";
 
+// Animation variants with proper typing
+const heroVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "easeOut"
+    }
+  }
+};
+
+const backgroundVariants: Variants = {
+  hidden: { scale: 1.1, opacity: 0 },
+  show: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 1.5,
+      ease: "easeOut"
+    }
+  }
+};
+
+const overlayVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      delay: 0.5,
+      ease: "easeOut"
+    }
+  }
+};
+
+const contentVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      delay: 0.8,
+      ease: "easeOut"
+    }
+  }
+};
+
 export default function Hero() {
   return (
-    <div className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center "
+    <motion.div
+      className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden"
+      variants={heroVariants}
+      initial="hidden"
+      animate="show"
+    >
+      {/* Background Image with zoom effect */}
+      <motion.div
+        className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: `url('/news/broucher.jpg')`,
         }}
+        variants={backgroundVariants}
+        initial="hidden"
+        animate="show"
       />
 
-       {/* <div className="absolute inset-0 bg-black/30" /> */}
+      {/* Dark Overlay */}
+      <motion.div
+        className="absolute inset-0 bg-black/40"
+        variants={overlayVariants}
+        initial="hidden"
+        animate="show"
+      />
 
-      {/* Centered Content */}
-      {/* <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-          Welcome to{" "}
-          <img
-            src="/logo.png"
-            alt="Logo"
-            className="inline-block h-[4.2em] w-auto align-middle ml-2 
-               drop-shadow-2xl brightness-180 contrast-110"
-          />
-        </h1>
-        <p className="text-xl md:text-2xl mb-8 max-w-2xl">
-          Explore the world most beautiful destinations and create memories that
-          last a lifetime
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg transition duration-300 transform hover:scale-105">
-            Get Started
-          </button>
-          <button className="border-2 border-white hover:bg-white hover:text-black text-white px-8 py-3 rounded-lg font-semibold text-lg transition duration-300">
-            Learn More
-          </button>
-        </div>
-      </div> */}
-
-      
-    </div>
+      {/* Content Section */}
+      <motion.div
+        className="relative z-10 flex items-center justify-center h-full text-center text-white"
+        variants={contentVariants}
+        initial="hidden"
+        animate="show"
+      >
+     
+      </motion.div>
+    </motion.div>
   );
 }
