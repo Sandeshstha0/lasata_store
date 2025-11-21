@@ -11,7 +11,7 @@ export default function LeadershipPage() {
       id: 1,
       name: "Niranjan Shrestha",
       position: "Founder of Bishnu Impex & Senior Advisor-Lasata(LDS)",
-      image: "7.jpg",
+      image: "/team/senior-shrestha.jpg",
       description:
         "The humble beginnings of Lasata started with his small grocery shop over 25 years ago. His values of honesty and customer care remain our foundation.",
       experience: "25+ years in retail",
@@ -26,7 +26,7 @@ export default function LeadershipPage() {
       id: 2,
       name: "Nischal Shrestha",
       position: "Founder & Managing Director",
-      image: "/7.jpg",
+      image: "/ceo.jpg",
       description:
         "Visionary entrepreneur with a passion for serving the local community and continuing the family legacy of honest business practices.",
       experience: "10+ years in retail business",
@@ -47,7 +47,7 @@ export default function LeadershipPage() {
       id: 1,
       name: "Sandesh Shrestha",
       position: "CTO - Chief Technology Officer",
-      image: "/7.jpg",
+      image: "/cto.jpg",
       description:
         "Leading Lasata's digital transformation and technological innovation to create seamless shopping experiences across both physical and digital platforms.",
       experience: "25+ years in retail",
