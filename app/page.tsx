@@ -16,7 +16,7 @@ export default function Home() {
         <NewsFeed />
         <AdvertisementSection />
         <Products />
-        {/* <Testomonal />   */}
+     
       </div>
     </>
   );

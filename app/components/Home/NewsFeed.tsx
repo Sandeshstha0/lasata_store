@@ -1,6 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
-// components/NewsFeed.tsx
-import React from "react";
+"use client";
+import { motion, Variants } from "framer-motion";
 
 const NewsFeed = () => {
   // Sample news data
@@ -61,25 +60,75 @@ const NewsFeed = () => {
     ],
   };
 
+  // Animation variants with proper typing
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6
+      }
+    }
+  };
+
+  const centerVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.8
+      }
+    }
+  };
+
   return (
-    <section className="py-12 bg-gray-50">
+    <motion.section 
+      className="py-12 bg-gray-50"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
+    >
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+        <motion.h2 
+          className="text-3xl font-bold text-gray-900 mb-8 text-center"
+          variants={itemVariants}
+        >
           Know more
-        </h2>
+        </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {/* Left Column - 2 rows */}
           <div className="space-y-6">
-            {newsItems.left.map((item) => (
-              <div
+            {newsItems.left.map((item, index) => (
+              <motion.div
                 key={item.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                variants={itemVariants}
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
+                custom={index}
               >
-                <img
+                <motion.img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-48 object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
                 />
                 <div className="p-4">
                   <span className="text-sm font-medium text-blue-600">
@@ -89,25 +138,36 @@ const NewsFeed = () => {
                     {item.title}
                   </h3>
                   <p className="text-gray-600">{item.excerpt}</p>
-                  <a
+                  <motion.a
                     href={item.links}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {item.button}
-                  </a>
+                  </motion.a>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Center Column - Large featured item */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-            <img
+          <motion.div 
+            className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+            variants={centerVariants}
+            whileHover={{ 
+              scale: 1.02,
+              transition: { duration: 0.3 }
+            }}
+          >
+            <motion.img
               src={newsItems.center.image}
               alt={newsItems.center.title}
-              className="w-full  object-cover"
+              className="w-full object-cover"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             />
             <div className="p-6">
               <div className="flex items-center justify-between mb-3">
@@ -124,28 +184,38 @@ const NewsFeed = () => {
               <p className="text-gray-700 text-lg leading-relaxed">
                 {newsItems.center.excerpt}
               </p>
-              <a
+              <motion.a
                 href={newsItems.center.links}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Read
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - 2 rows */}
           <div className="space-y-6">
-            {newsItems.right.map((item) => (
-              <div
+            {newsItems.right.map((item, index) => (
+              <motion.div
                 key={item.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                variants={itemVariants}
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
+                custom={index + 2}
               >
-                <img
+                <motion.img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-48 object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
                 />
                 <div className="p-4">
                   <span className="text-sm font-medium text-blue-600">
@@ -156,22 +226,24 @@ const NewsFeed = () => {
                   </h3>
                   <p className="text-gray-600">{item.excerpt}</p>
                   {item?.button && (
-                    <a
+                    <motion.a
                       href={item.links}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       {item.button}
-                    </a>
+                    </motion.a>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
