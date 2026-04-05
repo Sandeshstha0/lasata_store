@@ -57,13 +57,13 @@ export default function Navbar() {
       ],
     },
      { href: "/headship", label: "Headship", icon: IoPerson  },
-    {
-      href: "/newsandupdate",
-      label: "News And Updates",
-      icon: MdOutlineTipsAndUpdates,
-    },
+    // {
+    //   href: "/newsandupdate",
+    //   label: "News And Updates",
+    //   icon: MdOutlineTipsAndUpdates,
+    // },
     
-    { href: "/gallery", label: "Gallery", icon: GrGallery },
+    // { href: "/gallery", label: "Gallery", icon: GrGallery },
     { href: "/contact", label: "Contact", icon: FiMail },
   ];
 

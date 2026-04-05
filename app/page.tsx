@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import AdvertisementSection from "./components/Home/AdvertisementSection";
 import Hero from "./components/Home/Hero";
 import NewsFeed from "./components/Home/NewsFeed";
@@ -14,7 +15,7 @@ export default function Home() {
         <WelcomePopup />
        <Hero /> 
         <NewsFeed />
-        <AdvertisementSection />
+        {/* <AdvertisementSection /> */}
         <Products />
      
       </div>

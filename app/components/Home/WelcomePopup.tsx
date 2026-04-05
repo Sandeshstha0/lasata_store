@@ -150,7 +150,7 @@ export default function WelcomePopup() {
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
         >
           <img
-            src="/popupimage.jpg"
+            src="/popupimage.png"
             alt="Popup Image"
             className="w-full h-auto rounded"
           />
